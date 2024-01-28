@@ -2,11 +2,14 @@
 
 A simple and efficient news app built with React Native and Expo, designed to serve as a starter template for your news-related projects.
 
-Features
-1- Clean and intuitive user interface that focuses on content readability.
-2- Access news from various outlets, easily integrated through APIs.
-3- Save articles for offline reading.
-4- Customize your news feed to match your interests.
+## Features
+
+1. **Clean and intuitive user interface:** Enjoy a user-friendly interface that prioritizes content readability.
+2. **Access diverse news sources:** Stay informed with news from various outlets, easily integrated through APIs.
+3. **Offline reading capabilities:** Save articles for later reading, even without an internet connection.
+4. **Customizable content preferences:** Tailor your news feed to your interests.
+
+
 ## Getting Started
 1- Clone the repository from GitHub.
 2- Install the required dependencies.
