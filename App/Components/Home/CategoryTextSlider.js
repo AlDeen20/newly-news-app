@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import BrandColors from '../../Shared/BrandColors';
 
 function CategoryTextSlider() {
-  
+  const [active,setActivie]=useState(1);
   const DATA  = [
     { id: 1, name: 'Politics' },
     { id: 2, name: 'Technology' },
@@ -13,33 +13,46 @@ function CategoryTextSlider() {
     { id: 6, name: 'Local' }
   ];
 
- 
+
     
   return (
     <View>
         <FlatList
+        showsHorizontalScrollIndicator={false}
         data={DATA}
         horizontal={true}
         renderItem={({item}) => (
-          <TouchableOpacity style={styles.item}>
-            <Text style={styles.title}>{item.name}</Text>
+          <TouchableOpacity style={styles.item} onPress={()=>{setActivie(item.id)}}>
+            
+            <Text style={
+              
+              item.id==active? styles.selectText: styles.unSelectText
+              
+              }>{item.name}</Text>
           </TouchableOpacity>
         )}
         keyExtractor={item => item.id.toString()}
-        />
+        /> 
     </View>
   )
 }
 const styles = StyleSheet.create({
   item: {
     padding: 8,
-    marginVertical: 8,
+    marginVertical: 15,
     marginHorizontal: 5,
     backgroundColor: BrandColors.lightGray,
     opacity: 0.7,
     borderRadius: 10,
   },
-  title: {
+  selectText: {
+    color:BrandColors.green,
+    fontSize: 16,
+    fontWeight:'bold'
+    
+  },
+  unSelectText: {
+    color:BrandColors.primary,
     fontSize: 16,
   },
 });
