@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
 import React, { useEffect } from 'react'
-import { Image, Text, View, StyleSheet, SafeAreaView } from 'react-native'
+import { Image, Text, View, StyleSheet, SafeAreaView, Share } from 'react-native'
 import BrandColors from '../Shared/BrandColors';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -8,7 +8,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 function ReadNews() {
     const newsData = useRoute().params.news;
     const navigation=useNavigation();
-  
+    const shareNews =()=>{
+        Share.share({
+            message:newsData.title+"\nRead More: "+newsData.url
+        });
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -17,7 +21,9 @@ function ReadNews() {
 
                 <Ionicons name="arrow-back-circle-outline" size={30} color="#3480eb" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{
+                    shareNews();
+                }}>
 
                 <Feather name="share-2" size={30} color="#3480eb" />
                 </TouchableOpacity>
