@@ -22,7 +22,7 @@ function Home() {
 
   return (
   
-    <ScrollView>
+    <ScrollView style={{backgroundColor:BrandColors.white}}>
         <View style={styles.header}> 
             
             <Text style={styles.appName}>Newly App</Text>
@@ -48,7 +48,11 @@ const styles = StyleSheet.create({
         
     },
     header:{
-        display:'flex',flexDirection:'row', justifyContent:'space-between', alignItems:'center'
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        
     },
 });
 export default Home

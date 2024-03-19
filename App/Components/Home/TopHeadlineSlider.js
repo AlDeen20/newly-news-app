@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, FlatList, TouchableOpacity, Image, Dimensions } from 'react-native'
 import GlobalApi from '../../Services/GlobalApi'
 import BrandColors from '../../Shared/BrandColors';
+import { useNavigation } from '@react-navigation/native';
 
 function TopHeadlineSlider({newsData}) {
-  
+    const navigator=useNavigation();
   return (
     <View style={{marginTop:15}}>
 
@@ -14,7 +15,7 @@ function TopHeadlineSlider({newsData}) {
            showsHorizontalScrollIndicator={false}
             renderItem={({item})=>(
                 <TouchableOpacity 
-                
+                onPressIn={()=>{navigator.navigate('readnews', {news:item})}}
                 style={{width:Dimensions.get("screen").width*0.80, marginRight:10}}
                 >
                     <Image source={{uri:item.urlToImage}}
