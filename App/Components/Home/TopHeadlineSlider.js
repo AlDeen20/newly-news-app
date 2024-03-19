@@ -15,7 +15,7 @@ function TopHeadlineSlider({newsData}) {
            showsHorizontalScrollIndicator={false}
             renderItem={({item})=>(
                 <TouchableOpacity 
-                onPressIn={()=>{navigator.navigate('readnews', {news:item})}}
+                onPress={()=>{navigator.navigate('readnews', {news:item})}}
                 style={{width:Dimensions.get("screen").width*0.80, marginRight:10}}
                 >
                     <Image source={{uri:item.urlToImage}}
