@@ -5,7 +5,7 @@ import BrandColors from '../../Shared/BrandColors';
 import { useNavigation } from '@react-navigation/native';
 
 function TopHeadlineSlider({newsData}) {
-    const navigator=useNavigation();
+   
   return (
     <View style={{marginTop:15}}>
 

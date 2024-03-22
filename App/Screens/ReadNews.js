@@ -4,7 +4,8 @@ import { Image, Text, View, StyleSheet, SafeAreaView, Share } from 'react-native
 import BrandColors from '../Shared/BrandColors';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import * as WebBrowser from 'expo-web-browser';
 function ReadNews() {
     const newsData = useRoute().params.news;
     const navigation=useNavigation();
@@ -15,7 +16,7 @@ function ReadNews() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={{marginTop:15, marginBottom:5, display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <TouchableOpacity onPress={()=>{ navigation.goBack()}}>
 
@@ -40,9 +41,13 @@ function ReadNews() {
                 <Text style={styles.title}>{newsData.title}</Text>
                 <Text style={styles.source}>{newsData?.source?.name}</Text>
                 <Text style={styles.description}>{newsData.description}</Text>
+                <TouchableOpacity onPress={()=>{
+                   WebBrowser.openBrowserAsync(newsData.url);
+                }}>
                 <Text style={styles.read_more}>Read More . . .</Text>
+                </TouchableOpacity>
             </View>
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
         lineHeight:25
     },
     read_more: {
-        fontSize: 16,
+        fontSize: 18,
         color: BrandColors.primary,
         paddingHorizontal: 10,
         marginTop:5,
